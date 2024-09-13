@@ -72,6 +72,7 @@ const Authentication = () => {
   };
   return (
     <div className="container">
+      <img src="https://imgs.search.brave.com/GkXmz4PCw94AlQzEzydjB31sh9eZVyn2DG8-5gADHZ0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAxLzk2LzE5LzQ4/LzM2MF9GXzE5NjE5/NDgwMV9WZnk1V0k4/ZElUNTY5MGZrUU95/ZVBMdUJIVUpoM1J6/UC5qcGc"></img>
       <div className="tabs">
         <button
           className={activeTab === "login" ? "active" : ""}
@@ -164,13 +165,21 @@ const Authentication = () => {
       <style jsx>
         {`
                     .container{
+                    display: flex;
+                    align-items: center;
                         max-width: 500px;
-                        margin: 0 auto;
+                        margin: 150px auto;
                         padding: 20px;
+                        background-color: gray;
                     }
+                        .container img{
+                          max-width: 200px;
+                          border-radius: 50%; 
+                        }
                     .tabs{
                         display: flex;
                         margin-bottom; 20px;
+                        min-width: 250px;
                     }
                     .tabs button{
                         flex: 1;
