@@ -1,0 +1,55 @@
+.color-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+img{
+    background-color: #f4f4f4;
+}
+
+.color-each{
+    border-radius: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    height: 20px;
+    width: 20px;
+    margin: 1px;
+    cursor: pointer;
+}
+#color-1{
+    background-color: rgba(255, 0, 0, 0.5);
+    transition: 0.3s;
+}
+#color-1:hover{
+    background-color: red;
+    width: 30px;
+    height: 30px;
+}
+
+#color-2{
+    background-color: rgba(0, 0, 255, 0.5);
+    transition: 0.3s;
+}
+#color-2:hover{
+    background-color: blue;
+    width: 30px;
+    height: 30px;
+}
+#color-3{
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+#color-3:hover{
+    background-color: rgb(0, 0, 0);
+    width: 30px;
+    height: 30px;
+}
+#color-4{
+    background-color: rgba(0, 128, 0, 0.5);
+    transition: 0.3s;
+}
+#color-4:hover{
+    background-color: green;
+    width: 30px;
+    height: 30px;
+}
