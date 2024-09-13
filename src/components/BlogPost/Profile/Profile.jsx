@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./Profile.css";
 import axios from "axios";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const API_URL = "https://sample-api-fwbm.onrender.com/api/v1";
 
@@ -8,6 +10,7 @@ const API_URL = "https://sample-api-fwbm.onrender.com/api/v1";
 const Profile = () => {
   const [opt, setOpt] = useState(false)
   const [user, setUser] = useState(null);
+  const navigate = useNavigate()
   useEffect(() => {
     fetchMyuser();
   }, []);
@@ -25,6 +28,27 @@ const Profile = () => {
   const handleOpt = () => {
     setOpt(!opt)
   } 
+  const handleLogout = async () => {
+    const result = await Swal.fire({
+      title: "Are you ok?",
+      text: "You want to GO away?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085D6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Go",
+      cancelButtonText: "Stay",
+    });
+    if (result.isConfirmed) {
+      localStorage.removeItem("token");
+      await Swal.fire({
+        icon: "success",
+        title: "Log out completed",
+        text: "Thanks for using our service?!?!!?!??!",
+      });
+      navigate("/authentication");
+    }
+  };
   return (
     <div className="profile-container">
       <nav>
@@ -46,6 +70,11 @@ const Profile = () => {
           <li><a href="#about">ABOUT ME</a></li>
           <li><a href="#resume">EDUCATION</a></li>
           <li><a href="#contact">CONTACT</a></li>
+        </ul>
+        <ul className="ul">
+          <li><button className="logout" onClick={async () => {
+            await handleLogout()
+          }}>Log out</button></li>
         </ul>
       </div>
       <main>
@@ -112,7 +141,7 @@ const Profile = () => {
                 <h5>Certificate</h5>
                 <p>Embeded C Programming 11th. Augest, 2023</p>
                 <p>JAVA Programming. 25th August, 2023</p>
-                <p>IT Entrepreneurship Course 16th August, 2024</p>
+                <p>IT Entrepreneurship Course 16th August, 2024</p>   
               </div>
             </div>
 
